@@ -40,8 +40,11 @@ app.get("/user", (req, res) => {
             avg_size : getAverageSize(response.data.items),
             languages : getLanguages(response.data.items)
         });
+        res.status(200);
     }).catch(function (error) {
         console.log(error);
+        res.status(404).send("User not found.");
+        res.json([]);
     });
     
 });
