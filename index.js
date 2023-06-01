@@ -21,7 +21,7 @@ app.get("/user", (req, res) => {
         headers: {
             'X-GitHub-Api-Version': '2022-11-28',
             'Accept' : 'application/vnd.github+json',
-            'Authorization' : 'Bearer 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'
+            // 'Authorization' : 'Bearer YOUR_TOKEN'
         }
     }).then(function (response) {
         // console.log(response.data);
