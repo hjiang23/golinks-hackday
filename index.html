@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head><title>GitHub Aggregated Stats</title></head>
+
+<body>
+
+<form>
+    Username: <input type="text" name="username" id="username">
+    Forked: <input type="checkbox" name="forked" id="forked">
+</form>
+<button id="btn">Submit</button>
+
+<p id="data"></p>
+
+<script>
+    document.getElementById("btn").addEventListener("click", myFunction);
+
+    async function myFunction() {
+        const forked = document.querySelector('#forked').checked ? 'true' : 'false';
+    const response = await fetch(`http://localhost:3001/user?username=${document.getElementById("username").value}&forked=${forked}`);
+    const jsonData = await response.json();
+    document.getElementById("data").innerHTML = JSON.stringify(jsonData);
+    }
+</script>
+
+</body>
+</html> 

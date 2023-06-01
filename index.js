@@ -1,11 +1,14 @@
 const express = require("express");
 const axios = require('axios');
+const cors = require('cors')
 
 const app = express();
+app.use(cors())
 
 app.set("port", process.env.PORT || 3001);
 
 app.get("/user", (req, res) => {
+
     const user = req.query.username;
     const forked = req.query.forked;
 
